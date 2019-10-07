@@ -4,17 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Periodic Table</title>
+    <title>Periodic Table Responsive</title>
     <style>
-      .element {
-        width: calc(100vw / 19 - 10px);
-        height: calc(100vw / 19 - 10px);
-        margin: 0.08%;
-        padding: 5px;
-        border: 1px solid black;
+      body {
+        background: white;
       }
 
+
+  .element {
+    width: calc(100% / 19);
+    height: 0;
+    padding-bottom: calc(100% / 19);
+    border: 1px solid black;
+    margin: 0.06%;
+    position: relative;
+    flex: 1 0 calc(100vw / 19.82);
+  }
+
+  @media only screen and (max-width: 600px) {
+    .element {
+      flex: 1 0 calc(100vw / 20); /* explanation below */
+    }
+  }
+
+  .number {
+    font-size: 0.7vmax;
+    text-align: right;
+    padding-right: 5%;
+    position: absolute;
+    top: 3%;
+    right: 3%;
+  }
+
+  .symbol {
+    font-size: 2.5vmax;
+    line-height: 4.3vmax;
+    text-align: center;
+  }
+
+  .weight {
+    font-size: 0.7vmax;
+    padding-left: 5%;
+    position: absolute;
+    bottom: 3%;
+    left: 3%;
+  }
+
+
       #tbl {
+        width: 100vw;
         display: flex;
         flex-direction: row;
         flex-flow: wrap;  
@@ -24,7 +62,7 @@
         margin: 0px;
         padding: 0px;
       }
-
+/* 
       .symbol {
         font-weight: bolder;
         font-size: 2vw;
@@ -36,12 +74,12 @@
       .number {
         width: 100%;
         text-align: right;
-      }
+      } */
 
       .blank {
         border: 1px solid white;
       }
-
+/* 
       .meneer {
         background-image: url("https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTE5NTU2MzE2MzEzMDYwODc1/dmitri-mendeleyev-9405465-2-402.jpg");
         background-size: contain;
@@ -52,7 +90,7 @@
         text-align: center;
         font-size: 1.3em;
         font-weight: bolder;
-      }
+      } */
 
       .nonmetal {
         background: lightgreen;
@@ -112,50 +150,9 @@
 </script>
 
 <style>
-  .resp {
-    display: flex;
-    width: 80vw;
-  }
 
-  .ele {
-    width: calc(100% / 18);
-    height: 0;
-    padding-bottom: calc(100% / 18);
-    border: 1px solid black;
-    margin: 0.06%;
-  }
-
-  .number {
-    font-size: 0.7vw;
-  }
 
 </style>
-
-<div class="resp">
-  <div class="ele">
-    <div class="number">1</div>
-  </div>
-  <div class="ele">2</div>
-  <div class="ele">3</div>
-  <div class="ele">4</div>
-  <div class="ele">5</div>
-  <div class="ele">6</div>
-  <div class="ele">7</div>
-  <div class="ele">8</div>
-  <div class="ele">9</div>
-  <div class="ele">10</div>
-  <div class="ele">11</div>
-  <div class="ele">12</div>
-  <div class="ele">13</div>
-  <div class="ele">14</div>
-  <div class="ele">15</div>
-  <div class="ele">16</div>
-  <div class="ele">17</div>
-  <div class="ele">18</div>
-</div>
-
-
-
 
 <div id="tbl">
   <div class="element diatomic nonmetal">
