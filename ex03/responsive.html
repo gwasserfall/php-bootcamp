@@ -15,7 +15,6 @@
       }
 
       #tbl {
-        /* width: 100vw; */
         display: flex;
         flex-direction: row;
         flex-flow: wrap;  
@@ -109,31 +108,10 @@
 
 
 <script>
-  // var tbl = document.getElementById("tbl")
 
-  // fetch("https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json")
-  //   .then(json => json.json())
-  //   .then(data => {
-
-  //     var el = data.elements
-
-  //     el.forEach(element => {
-  //       var div = document.createElement("div")
-  //       div.classList.add("element")
-  //       element.category.split(" ").forEach(c => {
-  //         div.classList.add(c)
-  //       });
-  //       div.innerHTML += `
-  //         <div class="number">${element.number}</div>
-  //         <div class="symbol">${element.symbol}</div>
-  //         <div class="weight">${element.atomic_mass.toFixed(4)}</div>
-  //       `
-  //       tbl.appendChild(div);
-  //     });
-  //   }) 
 </script>
 
-<div id="tbl">
+<div id="tbl" contenteditable="True">
   <div class="element diatomic nonmetal">
     <div class="number">1</div>
     <div class="symbol">H</div>
