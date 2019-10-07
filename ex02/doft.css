@@ -1,0 +1,144 @@
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin: auto;
+}
+
+.menu-item {
+  justify-content: center;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+body {
+  background: #505050;
+}
+
+.panel {
+  background: #909090;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 10px 10px 10px black;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.aside {
+  width: 4vw;
+  min-height: 455px;
+}
+
+.active {
+  border: 5px solid red;
+}
+
+.link-one {
+  position: absolute;
+  left: 350px;
+  bottom: 100px;
+  width: 150px;
+  height: 150px;
+}
+
+.link-two {
+  position: absolute;
+  right: 50px;
+  bottom: 100px;
+  width: 200px;
+  height: 150px;
+}
+
+.header {
+  width: 60vw;
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content {
+  width: 60vw;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.menu-item > img {
+  width: 3vw;
+  height: auto;
+  margin: auto;
+  
+}
+
+body {
+  margin-top: 30px;
+}
+
+.logo > img {
+  height: 120px;
+}
+
+.close > img {
+  height: 20px;
+}
+
+.reload img {
+  height: 20px;
+}
+
+.modal {
+  position: absolute;
+  background: #88ff89;
+  height: 150px;
+  width: 550px;
+  left: -240px;
+  bottom: -110px;
+}
+
+.text {
+  font-size: 1.5em;
+}
+
+.question {
+  font-size: 1.3em;
+  margin-bottom: 15px;
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.input {
+  width: 80%;
+}
+
+.button {
+  margin-left: 15px;
+}
+
+.reload {
+  position: absolute;
+  right: 10px;  
+}
+
+.glass {
+  position: absolute;
+  right: 30px;
+  bottom: -20px;
+}
+
+.content {
+  width: 1024px;
+  position: relative;
+}
+
+.tiled-brick {
+  width: 3vw;
+  height: 60px;
+  background-image: url("resources/brick.jpg");
+}
