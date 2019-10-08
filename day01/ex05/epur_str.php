@@ -1,13 +1,12 @@
-#!/usr/local/bin/php
-
 <?php
 
-function ft_split($string)
+if ($argc > 1)
 {
+	$string = $argv[1];
 	$array = explode(" ", $string);
 	$array = array_diff($array, [""]);
-	sort($array);
-	return ($array);
+	echo join(" ", $array);
+	echo "\n";
 }
 
 ?>
