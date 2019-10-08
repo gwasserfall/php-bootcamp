@@ -1,0 +1,79 @@
+
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background: rgb(97, 97, 97);
+}
+
+img {
+    width: auto;
+    height: 150px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+.menu {
+    position: relative;
+}
+
+.column {
+    width: 60wv;
+}
+
+a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
+
+.flexy {
+    display: flex;
+    align-items: center; 
+}
+
+.menu-item:hover {
+    background: green;
+    color: white;
+}
+
+.flexy div {
+    flex-grow: 1;
+    margin-left: 30px;
+    font-size: 1.5em;
+}
+
+.menu-main {
+    background: yellow;
+    width: 30vw;
+}
+
+.menu-item {
+    opacity: 0;
+    visibility: hidden;
+    width: 30vw;
+    height: 150px;
+    background: yellow;
+    transform: translateX(-500px);
+    transition: opacity 0.5s ease-in-out,  transform 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    animation: move-in 6s;
+}
+
+.menu-item:nth-child(odd) {
+    transform: translateX(500px);
+}
+
+.menu:hover .menu-item{
+    opacity: 1;
+    height: 150px;
+    transition: opacity 0.5s ease-in-out,  transform 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    visibility: inherit;
+    transform: translateX(0px);
+    left: 0px;
+}

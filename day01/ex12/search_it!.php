@@ -10,9 +10,7 @@ if ($argc > 3)
         $array[$a[0]] = $a[1];
     }
     if (array_key_exists($search, $array))
-    {
         echo "$array[$search]\n";
-    }
 }
 
 ?>
