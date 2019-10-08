@@ -1,35 +1,31 @@
-#!/usr/local/bin/php
-
+#!/usr/bin/php
 <?php
+
+function mysort($a, $b)
+{
+	// alpha, number, other
+
+	$a = strtolower($a);
+	$b = strtolower($b);
+
+	$i = 0;
+
+	while ($a[$i] == $b[$i])
+	{
+		$i++;
+	}
+	if ($a > $b)
+		return 1;
+}
 
 if ($argc > 1)
 {
-	$alpha = [];
-	$numeric = [];
-	$special = [];
+	$array = [];
 	for ($i=1; $i < $argc; $i++) {
-		$current = explode(" ", $argv[$i]);
-		$current = array_diff($current, [""]);
-
-		for ($j=0; $j < count($current); $j++) { 
-			
-			if (ctype_alpha($current[$j][0]))
-				array_push($alpha, $current[$j]);
-			else if (ctype_digit($current[$j][0]))
-				array_push($numeric, $current[$j]);
-			else
-				array_push($special, $current[$j]);
-		}
+		$array = array_merge($array, explode(" ", $argv[$i]));
 	}
-	natcasesort($alpha);
-	print_r($numeric);
-	asort($numeric, SORT_NUMERIC);
-	print_r($numeric);
-	natcasesort($special);
-	echo join("\n", $alpha), "\n";
-	echo join("\n", $numeric), "\n";
-	echo join("\n", $special), "\n";
-
+	//usort($array, mysort);
+	echo join("\n", $array), "\n";
 }
 
 ?>
