@@ -1,5 +1,4 @@
-#!/usr/local/bin/php
-
+#!/usr/bin/php
 <?php
 
 if ($argc > 1)
@@ -9,8 +8,7 @@ if ($argc > 1)
 		$array = array_merge($array, explode(" ", $argv[$i]));
 	}
 	sort($array);
-	echo join("\n", $array);
-	echo "\n";
+	echo join("\n", $array), "\n";
 }
 
 ?>

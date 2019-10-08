@@ -1,18 +1,15 @@
-#!/usr/local/bin/php
+#!/usr/bin/php
 <?php
 
 while (TRUE)
 {
 	echo "Enter a number: ";
 	$in = fgets(STDIN);
-	$in = trim($in);
-
+	
 	if ($in == NULL)
-	{
-		echo "˜D\n";	
 		exit(1);
-	}
-
+	$in = trim($in);
+	
 	if (ctype_digit($in) == TRUE)
 	{
 		echo "The number $in is ";

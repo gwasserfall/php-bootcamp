@@ -1,5 +1,4 @@
-#!/usr/local/bin/php
-
+#!/usr/bin/php
 <?php
 
 function ft_split($string)
