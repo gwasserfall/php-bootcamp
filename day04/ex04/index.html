@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>42 Chat Login</title>
+	<style>
+		* {
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		}
+
+		.container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			padding-top: 10vh;
+		}
+
+		a:visited { 
+			text-decoration: none;
+			color: blue; 
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		.logo {
+			width: 250px;
+		}
+
+		.field input {
+			width: calc(100% - 4px);
+			height: 30px;
+			text-align: center;
+			margin-top: 15px;
+			font-size: 1.5em;
+			padding: 0;
+		}
+
+		.tagline {
+			font-size: 2em;
+			text-align: center;
+		}
+
+		::placeholder {
+			text-align: center;
+			font-size: 1em !important;
+		}
+
+		.button-primary {
+			margin-top: 15px;
+			width: 100%;
+			background: dodgerblue;
+			font-size: 1.5em;
+			color: white;
+		}
+
+		.button-primary:hover {
+			background: #0077ea;
+		}
+
+		.create-account {
+			text-align: center;
+			font-size: 1.2em;
+		}
+
+		.change-passwd {
+			text-align: center;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="form">
+			<img class="logo" src="img/42.png" alt="42logo">
+			<div class="login">
+				<form action="">
+					<div class="tagline">User Login</div>
+					<div class="fields">
+						<div class="field">
+							<input type="text" name="login" placeholder="username">
+						</div>
+						<div class="field">
+							<input type="password" name="passwd" placeholder="password">
+						</div>
+					</div>
+					<div class="control">
+						<button class="button-primary" type="submit">Login</button>			
+					</div>
+				</form>
+			</div>
+			<div class="change-passwd">
+					<p><a href="modif.html">Change Password</a></p>
+			</div>
+			<div class="create-account">
+					<p>Not a user? <a href="create.html">Sign Up</a></p>
+				</div>
+		</div>
+	</div>
+</body>
+</html>
