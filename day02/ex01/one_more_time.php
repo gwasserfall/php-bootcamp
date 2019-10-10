@@ -1,39 +1,46 @@
+#!/usr/bin/php
 <?php
 
-// Day_of_the_week Number_of_day Month Year Hours:Minutes:Seconds
+function day_to_int($day)
+{
+	$fre = [
+		"lundi",
+		"mardi",
+		"mercredi",
+		"jeudi",
+		"vendredi",
+		"samedi",
+		"dimanche"
+	];
 
-// "Mardi 12 Novembre 2013 12:02:21"
+	$index = array_search(strtolower($day), $fre);
 
-// "Mercreday 1stJuily 99"
+	return $index + 1;
+}
 
-// lundi - Monday.
-// mardi - Tuesday.
-// mercredi - Wednesday.
-// jeudi - Thursday.
-// vendredi - Friday.
-// samedi - Saturday.
-// dimanche - Sunday.
+function month_to_int($month)
+{
+	$fre = [
+		"janvier",
+		"février",
+		"mars",
+		"avril",
+		"mai",
+		"juin",
+		"juillet",
+		"aout",
+		"septembre",
+		"octobre",
+		"novembre",
+		"décembre"
+	];
 
-// janvier - January
-// février - February
-// mars - March
-// avril - April
-// mai - May
-// juin - June
-// juillet - July
-// aout - August
-// septembre -September
-// octobre - October
-// novembre - November
-// décembre - December
-var_dump( setlocale(LC_TIME, "fr_FR") );
+	$index = array_search(strtolower($month), $fre);
 
-// Set the locale to French
-setlocale(LC_TIME, "fr_FR");
+	return $index + 1;
 
-$date = DateTime::createFromFormat('l d F Y h:i:s', "Mardi 12 Novembre 2013 12:02:21");
+}
 
-echo $date == FALSE;
 
 function validate($date)
 {
@@ -52,12 +59,20 @@ function collect_date($string)
 	preg_match("/(\d{4})/", $string, $year);
 	preg_match("/\s(\d{2})\s/", $string, $dom);
 	
+	$a = explode(":", $time[0]);
+	$hour = $a[0];
+	$minute = $a[1];
+	$second = $a[2];
+
 	$date = [
-		"dow" => $dow,
-		"dom" => $dom,
-		"month" => $month,
-		"year" => $year,
-		"time" => $time,
+		"dow" => $dow[0], //string
+		"dom" => $dom[0], //int
+		"month" => $month[0], //string
+		"year" => $year[0], // int
+		"time" => $time[0], // string
+		"hour" => $hour, //int
+		"min" => $minute, //int
+		"sec" => $second
 	];
 
 	return $date;
@@ -69,13 +84,14 @@ if ($argc > 1)
 	$date = collect_date($argv[1]);
 	if (validate($date))
 	{
-
+		date_default_timezone_set("Europe/Paris");
+		print_r(mktime($date["hour"], $date["min"], $date["sec"], month_to_int($date["month"]), $date["dom"], $date["year"]));
+		echo "\n";
 	}
 	else
 	{
 		echo "Wrong Format\n";
 	}
-
 }
 
 
