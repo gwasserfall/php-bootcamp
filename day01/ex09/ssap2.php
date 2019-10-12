@@ -11,8 +11,10 @@ function mysort($a, $b)
 	$a = array_map("ordify", str_split(strtolower($a)));
 	$b = array_map("ordify", str_split(strtolower($b)));
 	$i = 0;
-	while ($a[$i] == $b[$i] && $i < count($a))
+	while ($i < count($a) && $a[$i] == $b[$i])
 		$i++;
+	if ($i >= count($a))
+		return 0;
 	$l = $a[$i];
 	$r = $b[$i];
 	if ($l > $r)
@@ -26,7 +28,7 @@ if ($argc > 1)
 	for ($i=1; $i < $argc; $i++) {
 		$array = array_merge($array, explode(" ", $argv[$i]));
 	}
-	usort($array, mysort);
+	usort($array, "mysort");
 	echo join("\n", $array), "\n";
 }
 ?>

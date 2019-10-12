@@ -6,12 +6,20 @@
 </head>
 <body>
 <div class="container">
-	<div class="jumbo">
-		<div class="logo">Dunder<br>Agon</div>
-		<button class="login">login</button>
+	<div class="band">
+	<div class="header">
+			<div class="logo"><img ID="header" src="img/logo-large.png" alt="logo"></div>
+			<div class="actions">
+				<button class="login">Login</button>
+				<button class="login">Sing Up</button>
+			</div>
+		</div>
 	</div>
-	<div class="main"></div>
-	<div class="footer">csx</div>
+	<div class="main">
+		<div class="promo">Promos:</div>
+		<img src="img/copypaper.jpg" alt="paper" class="promoimg">
+	</div>
+	<footer class="footer">csx</div>
 </div>
 </body>
 </html>
