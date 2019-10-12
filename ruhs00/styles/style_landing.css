@@ -1,32 +1,38 @@
 .container {
     display: flex;
-    flex-direction: column;
+	flex-direction: column;
+	width: 80vw;
+	justify-content: center;
+	align-items: center;
 }
-
-.logo {
-	width: 40%;
-	height: 20%;
-	background: #032535;
-	color: #ebfffb;
-	font: impact;
-	font-size: 5vw;
-	font-weight: bold;
-}
-
 
 body {
-	background: #ebfffb;
+	background: #eeeeee;
     margin: 0px;
     padding: 0px;
 }
 
 
 .footer {
-	background: black;
-    color: white;
+	background: #393e46;
+	color: white;
+	width: 80%;
+	height: 200px;
 }
 
 .jumbo {
 	display: flex;
-    display: column;
+	display: column;
+	width: 100%;
+	background: #222831;
+	color: whitesmoke;
+	font: impact;
+	font-size: 5vw;
+	font-weight: bold;
+}
+
+.login {
+	background: #00adb5;
+	height: 10%;
+	width: auto;
 }
