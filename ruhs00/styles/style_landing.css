@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+	width: 40%;
+	height: 20%;
+	background: #032535;
+	color: #ebfffb;
+	font: impact;
+	font-size: 5vw;
+	font-weight: bold;
+}
+
+
+body {
+	background: #ebfffb;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.footer {
+	background: black;
+    color: white;
+}
+
+.jumbo {
+	display: flex;
+    display: column;
+}
