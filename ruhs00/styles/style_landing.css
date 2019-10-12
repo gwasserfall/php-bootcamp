@@ -69,6 +69,7 @@ body {
 	font-weight: bold;
 }
 .band{
+	top: 0;
 	height: 200px;
 	width: 100vw;
 	width: 100%;
@@ -113,8 +114,11 @@ body {
 	color: whitesmoke;
 	margin-top: 10;
 }
+
 .promoimg{
 	border: #222831 solid 5px;
+	width: 30%;
+	height: auto;
 	border-radius: 5px;
 	margin: 10px;
 }

@@ -18,6 +18,7 @@
 	<div class="main">
 		<div class="promo">Promos:</div>
 		<img src="img/copypaper.jpg" alt="paper" class="promoimg">
+		<div class="maininfo">dsafa</div>
 	</div>
 	<footer class="footer">csx</div>
 </div>
