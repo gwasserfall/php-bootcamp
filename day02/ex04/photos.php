@@ -19,8 +19,6 @@ if ($argc == 2)
     preg_match('/<body.*<\/body/sm', $html, $body);
     preg_match_all('/<img[^>]+src="([^">]+)"/i', $body[0], $match);
 
-    
-
     foreach ($match[1] as $img)
     {
 
