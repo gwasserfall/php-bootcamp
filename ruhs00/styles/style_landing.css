@@ -1,48 +1,120 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
 .container {
     display: flex;
 	flex-direction: column;
-	width: 80vw;
+
 	justify-content: center;
 	align-items: center;
+	vertical-align: baseline;
 }
 
 body {
-	background: white;
+	background: #eeeeee;
     margin: 0px;
-    padding: 0px;
+	padding: 0px;
+	display: block;
 }
 
 
 .footer {
+	/* position: fixed; */
+	left: 0;
+	bottom: 0;
+	width: 100%;
 	background: #393e46;
 	color: white;
-	width: 100%;
-	height: 200px;
+	text-align: center;
+	min-height: 175px;
+
 }
 
 .main {
-	width: 100%;
-	height: 30vw;
+	margin: 10;
 	background: #eeeeee;
+	flex-direction: column;
+	width: 80vw;
+	height: 100vw;
+	border: #222831 solid 5px;
+	border-radius: 5px;
 }
 
-.jumbo {
+.header {
+	width: 80vw;
 	display: flex;
-	display: column;
-	width: 100%;
+	justify-content: space-between;
 	background: #222831;
 	color: whitesmoke;
 	font: impact;
 	font-size: 5vw;
 	font-weight: bold;
 }
+.band{
+	height: 200px;
+	width: 100vw;
+	width: 100%;
+	justify-content: center;
+	display: flex;
+	background: #222831;
+	color: whitesmoke;
+	font: impact;
+	text-align: left;
+}
+.promo{
+	padding: 0;
+	width: 100%;
+	height: 50;
+	display: flex;
+	background: #222831;
+	color: whitesmoke;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-size: 1.5vw;
+	text-align: left;
+}
+.actions {
+	padding: 50px;
+	display: flex;
+	flex-direction: column;
+}
+
+#header{
+	height: 200px;
+	width: auto;
+}
 
 .login {
 	background: #00adb5;
-	height: 1vw;
+	height: 1.5vw;
 	width: 4vw;
 	float: right;
-	border: #00adb5;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-size: 0.75vw;
 	border-radius: 2px;
-	justify-content: flex;
+	justify-content: right;
+	color: whitesmoke;
+	margin-top: 10;
+}
+.promoimg{
+	border: #222831 solid 5px;
+	border-radius: 5px;
+	margin: 10px;
 }
