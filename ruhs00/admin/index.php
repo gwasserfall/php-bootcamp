@@ -27,6 +27,7 @@ session_start();
 		<div class="col">
 			<div class="menu">
 				<ul class="menu-main">
+					<li><a class="bumo link" href="/">Home</a></li>
 					<li><a class="link" href="/admin/products.php">Products</a></li>
 					<li><a class="link" href="/admin/users.php">Users</a></li>
 				</ul>

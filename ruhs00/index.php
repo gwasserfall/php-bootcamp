@@ -43,6 +43,11 @@ if (isset($_POST["product_id"]))
 
 }
 
+$admin = FALSE;
+if (isset($_SESSION["admin"]))
+	$admin = $_SESSION["admin"];
+
+
 print_r($_SESSION);
 
 ?>
@@ -78,6 +83,9 @@ print_r($_SESSION);
 					</a></li>
 					<?php else: ?>
 					<li class="bump tab"><a href="logout.php">Logout</a></li>
+					<?php if($admin): ?>
+					<li class="tab"><a href="admin">Admin</a></li>
+					<?php endif; ?>
 					<li class="tab"><a href="basket.php">Basket
 						<?php echo "(" . user_basket_count($user) . ")"; ?>
 					</a></li>
