@@ -1,0 +1,42 @@
+.content {
+	width: 80vw;
+}
+
+.items {
+	width: 80vw;
+	padding: 10px;
+}
+
+.item {
+	display: flex;
+	padding: 10px;
+}
+
+.name {
+	width: 15%;
+}
+
+.amount {
+	width: 15%;
+}
+
+.price {
+	width: 15%;
+}
+
+.total {
+	width: 15%;
+}
+
+.heading {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.grand-total {
+	width: 100%;
+}
+
+.action {
+	padding: 15px;
+}

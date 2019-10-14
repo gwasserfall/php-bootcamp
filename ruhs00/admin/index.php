@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include_once("../database/users.php");
+include_once("../database/products.php");
 
 ?>
 
@@ -27,9 +29,9 @@ session_start();
 		<div class="col">
 			<div class="menu">
 				<ul class="menu-main">
-					<li><a class="bumo link" href="/">Home</a></li>
-					<li><a class="link" href="/admin/products.php">Products</a></li>
-					<li><a class="link" href="/admin/users.php">Users</a></li>
+					<li class="bump tab"><a class="bumo link" href="/">Home</a></li>
+					<li class="tab"><a class="link" href="/admin/products.php">Products</a></li>
+					<li class="tab"><a class="link" href="/admin/users.php">Users</a></li>
 				</ul>
 			</div>
 		</div>
@@ -39,7 +41,18 @@ session_start();
 	<div class="row content">
 		<div class="col data">
 			
-           
+		   <div class="usercount">
+			   Users: 
+			   <?php echo count(list_users()); ?>
+		   </div>
+		   <div class="productcount">
+			   Products: 
+		   <?php echo count(list_products()); ?>
+		   </div>
+		   <div class="categorycount">
+			   Product Categories: 
+			   <?php echo count(list_categories()); ?>
+		   </div>
 
 		</div>
 	</div>

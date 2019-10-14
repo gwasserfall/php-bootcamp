@@ -9,7 +9,6 @@
 
         $conn = mysqli_connect($HOST, $USER, $PASS, $DATABASE);
         if (mysqli_connect_errno($conn)) {
-            echo "Error connecting";
             return FALSE;
         }
         return $conn;

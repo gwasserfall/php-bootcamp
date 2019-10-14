@@ -22,6 +22,8 @@ else
 	}
 }
 
+$promo = isset($_GET["category"]);
+
 if (isset($_POST["product_id"]))
 {
 	if ($user == "Guest")
@@ -102,13 +104,16 @@ print_r($_SESSION);
 				$cats = list_categories();
 
 				foreach ($cats as $cat) {
-					echo "<li class='category'>{$cat["name"]}</li>";
+					echo "<li class='category'><a href='?category={$cat["name"]}'>{$cat["name"]}</li>";
 				}
 			?> 
 			</ul>
 		</div>
 		<div class="col s-70">
 			<div class="products">
+			<?php if ($promo): ?>
+			<?php endif; ?>
+
 			<?php 
 				$products = list_products();
 
