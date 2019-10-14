@@ -70,4 +70,16 @@
     }
 
 
+    function checkout($username)
+    {
+        if ($db = connect())
+        {
+            $items = [];
+            $query = "DELETE FROM basket WHERE user='%s'";
+            $result = mysqli_query($db, sprintf($query, $username));
+            return $result;
+            close($db);
+        }
+    }
+
 ?>

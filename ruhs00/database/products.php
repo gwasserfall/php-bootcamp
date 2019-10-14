@@ -6,7 +6,7 @@
     {
         if ($db = connect())
         {
-            $query = "INSERT INTO categories (name) VALUES (`%s`);";
+            $query = "INSERT INTO categories (`name`) VALUES ('%s')";
             $result = mysqli_query($db, sprintf($query, $name));
             return $result;
             close($db);
@@ -22,7 +22,6 @@
             echo sprintf($query, $name, $price, $color, $category, $image);
             $result = mysqli_query($db, sprintf($query, $name, $price, $color, $category, $image));
             return $result;
-            print_r($db);
             close($db);
         }
         return FALSE;
@@ -62,23 +61,17 @@
         }
     }
 
-    function products_by_category()
+
+    function products_by_category($category)
     {
         if ($db = connect())
         {           
             $products = [];
-            $c_query = 'SELECT * FROM categories';
-            $c = mysqli_query($db, $c_query);
-            if (mysqli_num_rows($c) > 0) {
-                while($row = mysqli_fetch_assoc($c)) {
-                    $products[$row["name"]] = [];
-                    $p_query = "SELECT * FROM products WHERE cat_id='{$row["id"]}'";
-                    $p = mysqli_query($db, $p_query);
-                    if (mysqli_num_rows($p) > 0) {
-                        while($prod = mysqli_fetch_assoc($p)) {
-                            $products[$row["name"]] = $prod;
-                        }
-                    }
+            $query = "SELECT * FROM products where cat_id='$category'";
+            $result = mysqli_query($db, $query);
+            if (mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_assoc($result)) {
+                    $products[$row["id"]] = $row;
                 }
             }
             close($db);
@@ -98,6 +91,5 @@
         }
     }
 
-    print_r(products_by_category());
 
 ?>

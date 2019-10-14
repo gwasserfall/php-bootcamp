@@ -24,19 +24,20 @@ else
 
 $promo = isset($_GET["category"]);
 
+if (isset($_GET["category"]))
+{
+	$products = products_by_category($_GET["category"]);
+}
+else
+{
+	$products = list_products();
+}
+
 if (isset($_POST["product_id"]))
 {
 	if ($user == "Guest")
 	{
-		if (isset($_SESSION["basket"]))
-		{
-			$_SESSION["basket"][$_POST["product_id"]] = $_POST["amount"];
-		}
-		else
-		{
-			$_SESSION["basket"] = [];
-			$_SESSION["basket"][$_POST["product_id"]] = $_POST["amount"];
-		}
+		add_to_basket(session_id(), $_POST["product_id"], $_POST["amount"]);
 	}
 	else
 	{
@@ -49,8 +50,6 @@ $admin = FALSE;
 if (isset($_SESSION["admin"]))
 	$admin = $_SESSION["admin"];
 
-
-print_r($_SESSION);
 
 ?>
 
@@ -81,7 +80,7 @@ print_r($_SESSION);
 					<li class="bump tab"><a href="login.php">Login</a></li>
 					<li class="tab"><a href="signup.php">Sign Up</a></li>
 					<li class="tab"><a href="basket.php">Basket
-						<?php echo $basket_count; ?>
+						<?php echo user_basket_count(session_id()); ?>
 					</a></li>
 					<?php else: ?>
 					<li class="bump tab"><a href="logout.php">Logout</a></li>
@@ -100,22 +99,26 @@ print_r($_SESSION);
 	<div class="row content">
 		<div class="col s-10">
 			<ul class="side-menu">
+				<li class="category"><a href="/">All</a></li>
 			<?php 
 				$cats = list_categories();
 
 				foreach ($cats as $cat) {
-					echo "<li class='category'><a href='?category={$cat["name"]}'>{$cat["name"]}</li>";
+					echo "<li class='category'><a href='?category={$cat["id"]}'>{$cat["name"]}</a></li>";
 				}
 			?> 
 			</ul>
 		</div>
 		<div class="col s-70">
 			<div class="products">
-			<?php if ($promo): ?>
+			<?php if (!$promo): ?>
+				<div class="sale">
+					<img src="/img/sale.jpg" alt="">
+				</div>
 			<?php endif; ?>
 
 			<?php 
-				$products = list_products();
+				
 
 				foreach ($products as $p) {
 					echo "

@@ -3,7 +3,7 @@ session_start();
 
 include_once("database/basket.php");
 
-$user = "";
+$user = session_id();
 if (isset($_SESSION["logged_on_user"]))
 {
 	$items = get_basket($_SESSION["logged_on_user"]);
@@ -11,16 +11,18 @@ if (isset($_SESSION["logged_on_user"]))
 }
 else
 {
-	$items = $_SESSION["basket"];
+	$items = get_basket(session_id());
+}
+
+
+if (isset($_POST["checkout"]))
+{
+	checkout($user);
 }
 
 
 
 ?>
-
-
-
-
 
 <!DOCTYPE>
 <html>
@@ -90,7 +92,10 @@ else
 				</div>
 			</div>
 			<div class="action">
-				<button>Check Out</button>
+				<form method="POST">
+					<input type="hidden" name="checkout" value="1">
+					<button type="submit">Check Out</button>
+				</form>
 			</div>
 		</div>
 	</div>

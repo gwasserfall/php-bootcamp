@@ -29,7 +29,6 @@
             $hash = hash("sha512", $password);
             $query = "INSERT INTO users (login, hash, email, `group`) VALUES ('%s', '%s', '%s', 'user')";
             $result = mysqli_query($db, sprintf($query, $username, $hash, $email));
-            print_r($db);
             return $result;
             close($db);
         }
@@ -67,20 +66,16 @@
         }
     }
 
-    // function delete_users()
-    // {
-    //     if ($db = connect())
-    //     {
-            
-    //     }
-    // }
+    function delete_user($username)
+    {
+        if ($db = connect())
+        {
+            $query = "DELETE FROM users WHERE login='$username'";
+            echo $query;
+            $result = mysqli_query($db, $query);
+            return $result;
+        }
+    }
 
-    // function update_user()
-    // {
-    //     if ($db = connect())
-    //     {
-
-    //     }
-    // }
     
 ?>

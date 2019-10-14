@@ -1,0 +1,40 @@
+.list {
+	width: 80vw;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.content {
+	width: 80vw;
+}
+
+.form {
+	width: 30%;
+}
+
+.forms {
+	display: flex;
+}
+
+.forms form {
+	width: 50%;
+}
+
+.field {
+	width: 30vw;
+	display: flex;
+	padding: 10px 0px 0px 0px;
+}
+
+.field .label {
+	width: 150px;
+}
+
+.submit {
+	margin-top: 10px;
+}
+
+.title {
+	font-size: 1.2em;
+	font-weight: bold;
+}
