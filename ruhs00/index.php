@@ -1,17 +1,49 @@
 <?php
-session_start();
 
-if (isset($_GET["product"]))
-	$product = $_GET["product"];
+include_once("database/products.php");
+include_once("database/basket.php");
+
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
+
+$basket_count = 0;
+
+if (isset($_SESSION['logged_on_user']))
+{
+	$user = $_SESSION['logged_on_user'];
+}
 else
-	$product = false;
+{
+	$user = "Guest";
+	if (isset($_SESSION["basket"]))
+	{
+		$basket_count = count($_SESSION["basket"]);
+	}
+}
 
+if (isset($_POST["product_id"]))
+{
+	if ($user == "Guest")
+	{
+		if (isset($_SESSION["basket"]))
+		{
+			$_SESSION["basket"][$_POST["product_id"]] = $_POST["amount"];
+		}
+		else
+		{
+			$_SESSION["basket"] = [];
+			$_SESSION["basket"][$_POST["product_id"]] = $_POST["amount"];
+		}
+	}
+	else
+	{
+		add_to_basket($user, $_POST["product_id"], $_POST["amount"]);
+	}
 
-$user = $_SESSION["user"];
+}
 
-
-
-
+print_r($_SESSION);
 
 ?>
 
@@ -29,47 +61,74 @@ $user = $_SESSION["user"];
 		<div class="col">
 			<div class="header">
 				<div class="logo"><img ID="header" src="img/logo-large.png" alt="logo"></div>
-				<div class="actions">
-					<button class="login">Login</button>
-					<button class="login">Sign Up</button>
-				</div>
+				<div class="welcome">Welcome <?php echo $user; ?></div>
 			</div>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col">
-			<?php if ($product): ?>
 			<div class="menu">
 				<ul class="menu-main">
-					<li>Paper</li>
-					<li>Staplers</li>
-					<li>Staples</li>
-					<li>Pens</li>
-					<li>Paper Weights</li>
-					<li>Rubber Bands</li>
+					<?php if ($user == "Guest"): ?>
+					<li class="bump tab"><a href="login.php">Login</a></li>
+					<li class="tab"><a href="signup.php">Sign Up</a></li>
+					<li class="tab"><a href="basket.php">Basket
+						<?php echo $basket_count; ?>
+					</a></li>
+					<?php else: ?>
+					<li class="bump tab"><a href="logout.php">Logout</a></li>
+					<li class="tab"><a href="basket.php">Basket
+						<?php echo "(" . user_basket_count($user) . ")"; ?>
+					</a></li>
+					<?php endif; ?>
 				</ul>
 			</div>
-			<?php endif; ?>
 		</div>
 	</div>
-
 
 	<div class="row content">
-		<div class="col aside-menu">
-			<?php
-				print_r($_SESSION);
-				
-				echo "Welcome";
-				echo session_id();
-			?>
+		<div class="col s-10">
+			<ul class="side-menu">
+			<?php 
+				$cats = list_categories();
+
+				foreach ($cats as $cat) {
+					echo "<li class='category'>{$cat["name"]}</li>";
+				}
+			?> 
+			</ul>
 		</div>
-		<div class="col">
-			
+		<div class="col s-70">
+			<div class="products">
+			<?php 
+				$products = list_products();
+
+				foreach ($products as $p) {
+					echo "
+					<div class='product' id='{$p["id"]}'>
+						<div class='product-image'>
+							<img src='img/{$p["image"]}' style='background: {$p["color"]}'>
+						</div>
+						<div class='name'>{$p["name"]}</div>
+						<div class='price'>R{$p["price"]}</div>
+						<div class='product-action'>
+							<form id='{$p["id"]}' method='POST'>
+								<input value='1' name='amount' type='number'>
+								<input type='hidden' name='user' value='{$user}'>
+								<input type='hidden' name='product_id' value='{$p["id"]}'>
+								<input type='submit' value='add to basket'>
+							</form>
+						</div>
+					</div>
+					";
+				}
+			?>
+			</div>
 		</div>
 	</div>
 
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col">
 			<div class="footer">
 				<div class="tile">
@@ -87,29 +146,10 @@ $user = $_SESSION["user"];
 			</div>
 		</div>
 	</div>
+	 -->
 </div>
-
-
-<script>
-	var active = "<?php echo 'product' ?>"
-
-	console.log("active", active)
-
-	if (active.length > 0)
-	{
-		var items = document.querySelectorAll(".menu-main li");
-
-		items.forEach(el => {
-			if (el.innerText.toLowerCase() == active.toLowerCase())
-			{
-				el.classList.add("active")
-			}
-			else
-			{
-				el.classList.remove("active")
-			}
-		})
-	}
+<script src="basket.js">
+	
 </script>
 
 

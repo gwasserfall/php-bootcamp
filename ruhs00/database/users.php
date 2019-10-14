@@ -2,17 +2,37 @@
 
     include("database.php");
 
+    function auth($username, $password)
+    {
+        $users = list_users();
+
+        if (!array_key_exists($username, $users))
+        {
+            return FALSE;
+        }
+        else
+        {
+            if (hash("sha512", $password) == $users[$username]["hash"])
+                return TRUE;
+            return FALSE;
+        }
+    }
+
+
     function create_user($username, $password, $email)
     {
+        if (user_exists($username))
+            return FALSE;
+
         if ($db = connect())
         {
             $hash = hash("sha512", $password);
-            $query = "INSERT INTO users (login, password, email, group_type) VALUES ('%s', '%s', '%s', 'user')";
+            $query = "INSERT INTO users (login, hash, email, `group`) VALUES ('%s', '%s', '%s', 'user')";
             $result = mysqli_query($db, sprintf($query, $username, $hash, $email));
+            print_r($db);
             return $result;
             close($db);
         }
-        echo "DB COnnection failed";
     }
 
     function user_exists($username)
@@ -20,6 +40,15 @@
         return array_key_exists($username, list_users());
     }
 
+
+    function user_is_admin($username)
+    {
+        $users = list_users();
+
+        if ($users[$username]["group"] == "admin")
+            return TRUE;
+        return FALSE;
+    }
 
     function list_users()
     {
@@ -53,6 +82,5 @@
 
     //     }
     // }
-
     
 ?>

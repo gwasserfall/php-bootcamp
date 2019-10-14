@@ -3,9 +3,9 @@
     function connect() 
     {
         $HOST = "127.0.0.1";
-        $USER = "root";
-        $PASS = "lookatme";
-        $DATABASE = "dunderagon";
+        $USER = "database";
+        $PASS = "password";
+        $DATABASE = "minishop";
 
         $conn = mysqli_connect($HOST, $USER, $PASS, $DATABASE);
         if (mysqli_connect_errno($conn)) {

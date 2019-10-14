@@ -1,6 +1,8 @@
 <?php
     include_once("./database/users.php");
-    // Check if username and password are not empty
+    
+    $errors = [];
+
     if (isset($_POST["login"]) && isset($_POST["passwd"]))
     {
         $user = $_POST["login"];
@@ -13,16 +15,16 @@
         {
             if (create_user($user, $pass, $email))
             {
-                echo "User created\n";
+                header("Location: /login.php");
             }
             else
             {
-                echo "Failed to create user\n";
+                array_push($errors, "Failed to create user");
             }
         }
         else
         {
-            echo "Username has already been taken please try another";
+            array_push($errors, "This username is already taken please try another");
         }
 
     }
@@ -43,9 +45,5 @@
         email <input name="email" type="email" autocomplete="off"><br>
         <button type="submit">Sign Up</button>
     </form>
-    <div class="test">
-        <pre><?php print_r(list_users());?>
-        </pre>
-    </div>
 </body>
 </html>
