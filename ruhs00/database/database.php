@@ -3,7 +3,7 @@
     function connect() 
     {
         $HOST = "127.0.0.1";
-        $USER = "database";
+        $USER = "root";
         $PASS = "password";
         $DATABASE = "minishop";
 

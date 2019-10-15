@@ -1,12 +1,12 @@
 <?php
 
-$conn = mysqli_connect("127.0.0.1", "database", "password");
+$conn = mysqli_connect("127.0.0.1", "root", "password");
 
 if (mysqli_query($conn, "CREATE DATABASE minishop")) {
 	echo "Database created successfully\n";
 	$sql = file_get_contents('minishop.sql');
 
-	$mysqli = new mysqli("127.0.0.1", "database", "password", "minishop");
+	$mysqli = new mysqli("127.0.0.1", "root", "password", "minishop");
 	if (mysqli_connect_errno()) { /* check connection */
 		printf("Connect failed: %s\n", mysqli_connect_error());
 	exit();
