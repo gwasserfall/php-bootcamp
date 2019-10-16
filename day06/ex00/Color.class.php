@@ -23,16 +23,16 @@ class Color {
         }
 
         if (self::$verbose)
-            echo sprintf("Color( red: %3d, green: %3d, blue: %3d ) constructed.\n", $this->red, $this->green, $this->blue);
+            print sprintf("%s contructed.\n", $this->__toString());
     }
 
     function __destruct()
     {
         if (self::$verbose)
-            print sprintf("Color( red: %3d, green: %3d, blue: %3d ) destructed.\n", $this->red, $this->green, $this->blue);
+            print sprintf("%s destructed.\n", $this->__toString());
     }
 
-    public function doc()
+    public static function doc()
     {
         echo file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . "Color.doc.txt"), "\n";
     }
