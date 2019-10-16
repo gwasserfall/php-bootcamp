@@ -1,6 +1,13 @@
 
 <- Vertex ----------------------------------------------------------------------
 Your documentation here.
+<<<<<<< HEAD
+=======
+
+Vertx w is defaulted to 1.00
+$color = 255, 255, 255
+
+>>>>>>> bacf077ad963062fcf4deee8f5f156ece1842210
 ---------------------------------------------------------------------- Vertex ->
 Vertex( x: 0.00, y: 0.00, z:0.00, w:1.00, Color( red: 255, green: 255, blue: 255 ) ) constructed
 Vertex( x: 0.00, y: 0.00, z:0.00, w:1.00, Color( red: 255, green: 255, blue: 255 ) )
