@@ -1,7 +1,7 @@
 INSERT INTO ft_table (`login`,`group`,`creation_date`)
 SELECT 
 	`last_name`,
-    'other'AS `group`,
+    'other' AS `group`,
     `birthdate`
 FROM user_card
 WHERE

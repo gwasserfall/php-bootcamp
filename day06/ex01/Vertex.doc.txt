@@ -2,7 +2,7 @@
 The Vertex class handles homogeneous coordinates containing x, y, z, w 
  values and a Color.
 
-An instance can be contructed from either a RGB value:
+An instance can be contructed from x, y and z coordinates:
 new Vertex( array( 'x' => 1.00, 'y' => 1.00, 'z' => 1.00) );
 
 The Vertex class has 2 default members:

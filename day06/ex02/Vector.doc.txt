@@ -1,0 +1,39 @@
+<- Vector ----------------------------------------------------------------------
+The Vector class defines a line between to Vertecies
+
+An instance can be contructed from either a RGB value:
+new Vector( array( 'dest' => Vertex, 'orig' +> Vertex (Optional) );
+
+If no origin is specified it shall default to a (0,0,0) Vertex/
+
+The class provides the following methods :
+
+float magnitude() : 
+Returns the vector’s length (or "norm").
+
+Vector normalize() :
+Returns a normalized version of the vector. If the vector is already 
+normalized, returns a fresh copy of the vector.
+
+Vector add( Vector $rhs ) :
+Returns the sum vector of both vectors.
+
+Vector sub( Vector $rhs ) :
+Returns the difference vector of both vectors.
+
+Vector opposite() :
+Returns the opposite vector.
+
+Vector scalarProduct( $k ) :
+Returns the multiplication of the vector with a scalar.
+
+float dotProduct( Vector $rhs ) :
+Returns the scalar multiplication of both vectors.
+
+float cos( Vector $rhs ) :
+Returns the angle’sAppendix cosine between both vectors.
+
+Vector crossProduct( Vector $rhs ) :
+Returns the cross multiplication of both vectors.
+
+---------------------------------------------------------------------- Vector ->

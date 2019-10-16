@@ -23,7 +23,7 @@ class Color {
         }
 
         if (self::$verbose)
-            print sprintf("%s contructed.\n", $this->__toString());
+            print sprintf("%s constructed.\n", $this->__toString());
     }
 
     function __destruct()
