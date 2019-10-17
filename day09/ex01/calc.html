@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+
+<style>
+
+    body {
+        display: flex;
+        justify-content: center;
+        padding-top: 10vh;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .calculator {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        border: 1px solid darkblue;
+    }
+
+    .main {
+        display: flex;
+    }
+
+    .main input {
+        flex: 1;
+        text-align: center;
+        font-size: 2em;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100px;
+        height: 100px;
+        font-size: 2em;
+    }
+
+    .try-me {
+        width: 100%;
+    }
+
+    .header {
+        flex: 1;
+        font-size: 2.1em;
+        font-weight: bold;
+        line-height: 2.1em;
+        text-align: center;
+        background: dodgerblue;
+        color: white;
+    }
+
+    .active,
+    .active:focus {
+        background: dodgerblue
+    }
+
+    button:focus {
+        outline: 1px solid #fff;
+        outline-offset: -4px;
+    }
+
+    button:active {
+        transform: scale(0.99);
+    }
+    /* Button styles end */
+
+
+</style>
+
+</head>
+<body>
+
+<div class="calculator">
+    <div class="header">Annoying Calculator</div>
+    <div class="main">
+        <input id="left" type="text">
+        <div class="buttons">
+            <button class="button active" operator="+">+</button>
+            <button class="button" operator="-">-</button>
+            <button class="button" operator="*">*</button>
+            <button class="button" operator="/">/</button>
+            <button class="button" operator="%">%</button>
+        </div>
+        <input id="right" type="text">
+    </div>
+    <button class="button try-me" operator="calc">Try me!</button>
+</div>
+
+<script>
+
+    var buttons = document.querySelectorAll(".button");
+    var left = document.getElementById("left")
+    var right = document.getElementById("right")
+
+    function validate()
+    {}
+        
+    }
+
+    function do_op()
+    {
+
+    }
+
+    document.querySelectorAll(".button").forEach(button => {
+        button.addEventListener("click", (self) => {
+            if (self.target.classList.contains("try-me"))
+                return do_op();
+
+            buttons.forEach(reset => {
+                if (reset.classList.contains("active"))
+                reset.classList.remove("active")
+            })
+
+            self.target.classList.add("active")
+        })
+    })
+
+
+
+    // setTimeout(()=>{
+    //     alert("Please, use me...")
+    // }, 30000)
+
+</script>
+</body>
+</html>
