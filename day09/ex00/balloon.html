@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Balloon</title>
+    <style>
+        body {
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-content: center;
+           align-items: center;
+        }
+
+        #balloon {
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="balloon"></div>
+    <div id="info"></div>
+    <script>
+        const bal = document.getElementById("balloon")
+
+        bal.style.backgroundColor = 'red';
+
+        function cycle_color(current)
+        {
+            if (current === "red")
+                return "green"
+            if (current === "green")
+                return "blue"
+            if (current === "blue")
+                return "red"
+        }
+
+        function cycle_color_reverse(current)
+        {
+            if (current === "red")
+                return "blue"
+            if (current === "green")
+                return "red"
+            if (current === "blue")
+                return "green"
+        }
+
+
+        bal.addEventListener("click", () => {
+
+            bal.style.width = (bal.offsetWidth + 10) + "px"
+            bal.style.height = (bal.offsetHeight + 10) + "px"
+            bal.style.backgroundColor = cycle_color(bal.style.backgroundColor)
+
+            if (bal.offsetWidth > 420 || bal.offsetHeight > 420)
+            {     
+                bal.style.width = "200px"
+                bal.style.height = "200px"
+            }
+               
+        })
+
+        bal.addEventListener("mouseout", () => {
+
+            bal.style.backgroundColor = cycle_color_reverse(bal.style.backgroundColor)
+
+            if (bal.offsetWidth > 204 && bal.offsetHeight > 204)
+            {
+                bal.style.width = (bal.offsetWidth - 5) + "px"
+                bal.style.height = (bal.offsetHeight - 5) + "px"
+            }
+        })
+    
+    </script>
+</body>
+</html>
