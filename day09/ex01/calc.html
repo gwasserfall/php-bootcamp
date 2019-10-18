@@ -81,17 +81,17 @@
 <div class="calculator">
     <div class="header">Annoying Calculator</div>
     <div class="main">
-        <input id="left" type="text">
+        <input id="left" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')" tabindex="1">
         <div class="buttons">
-            <button class="button active" operator="+">+</button>
-            <button class="button" operator="-">-</button>
-            <button class="button" operator="*">*</button>
-            <button class="button" operator="/">/</button>
-            <button class="button" operator="%">%</button>
+            <button class="button active" operator="+" tabindex="-1">+</button>
+            <button class="button" operator="-" tabindex="-1">-</button>
+            <button class="button" operator="*" tabindex="-1">*</button>
+            <button class="button" operator="/" tabindex="-1">/</button>
+            <button class="button" operator="%" tabindex="-1">%</button>
         </div>
-        <input id="right" type="text">
+        <input id="right" type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '')" tabindex="2">
     </div>
-    <button class="button try-me" operator="calc">Try me!</button>
+    <button class="button try-me" operator="calc" tabindex="-1">Try me!</button>
 </div>
 
 <script>
@@ -100,14 +100,47 @@
     var left = document.getElementById("left")
     var right = document.getElementById("right")
 
-    function validate()
-    {}
-        
+    var operator = "+"
+
+    function show($this)
+    {
+        console.log($this)
+        alert($this)
     }
+
 
     function do_op()
     {
+        var l = parseFloat(left.value)
+        var r = parseFloat(right.value)
 
+        if (l < 0 || r < 0)
+        {
+            show("Error :(")
+            return false
+        }
+
+
+        if (operator == "+")
+            show(l + r)
+        if (operator == "-")
+            show(l - r)
+        if (operator == "*")
+            show(l * r)
+        if (operator == "/")
+        {
+            if (r == 0)
+                show("It's over 9000!")
+            else
+                show(l / r)
+        }
+        if (operator == "%")
+        {
+            if (r == 0)
+                show("It's over 9000!")
+            else
+                show(l % r)
+        }
     }
 
     document.querySelectorAll(".button").forEach(button => {
@@ -121,6 +154,7 @@
             })
 
             self.target.classList.add("active")
+            operator = self.target.getAttribute("operator")
         })
     })
 
